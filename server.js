@@ -7,7 +7,13 @@ require('dotenv').config(); // Load environment variables
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+    {
+        origin: 'https://eco-track-internship-project.netlify.app/',
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        credentials: true
+    }
+));
 app.use(express.static('.')); // Serve static files
 
 // MongoDB Atlas Connection with Async/Await
